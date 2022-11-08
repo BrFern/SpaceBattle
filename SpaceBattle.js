@@ -5,8 +5,53 @@ button.innerHTML = "Start Game!"
 var body = document.getElementsByTagName("body")[0];
 body.appendChild(button);
 
-// Event handler for attacking
+//Making a class for spaceships 
+class userShip {
+    constructor (hull, firepower, accuracy) {
+        this.hull = hull;
+        this.firepower = firepower;
+        this.accuracy = accuracy;
+    }
+};
 
+const helloWorld = new userShip (20, 5, .7);
+
+console.log(helloWorld)
+
+//Alien spaceship class   //Sarada's support:
+class Alien {
+    constructor(hull,firepower,accuracy)
+    {   this.hull = hull;
+        this.firepower = firepower;
+        this.accuracy = accuracy;  
+    } 
+
+}  
+
+let alienArray = []
+    let randomNumber = (min, max) => { 
+        return Math.random() * (max - min) + min;
+    }
+    for(let i=0;i<6;i++)
+    {
+        let alienShips = new Alien(Math.floor(randomNumber(3,6)),Math.floor(randomNumber(2,4)),randomNumber(0.6,0.8));
+        alienArray.push(alienShips);
+    };
+
+    // console.log(Alien.alienArray.accuracy)
+
+//HW Attacking AS
+function hwAttacks(){
+    if (userShip.accuracy >= Alien.[alienArray].accuracy && userShip.firePower >= Alien.alienArray.hull){
+        alert(`You destroyed an alien ship!`)
+    } else if (userShip.accuracy === Alien.alienArray.accuracy && userShip.firePower === Alien.alienArray.hull){
+        alert(`You hit an alien ship! Their hull defense is now at ${alienArray.hull}`) // Reflect the alienship points
+    } else (userShip.accuracy <= Alien.alienArray.accuracy && userShip.firePower <= Alien.alienArray.hull);{
+        alert("You missed the ship!")
+    }
+    };
+
+// Event handler for attacking
 //Lorivie helped me with this part, thank you!
 button.addEventListener ("click", function() {
     alert("Let's kill some aliens");
@@ -14,6 +59,7 @@ button.addEventListener ("click", function() {
     let userChoice = prompt ("Do you want to attack or exit?", "Enter attack, a or A to attack, enter exit, e or E to exit");
     if (userChoice === "A" || userChoice === "a" || userChoice === "attack") {
         confirm ("Laser attack! Pew, pew!");
+        hwAttacks ();
     } else if (userChoice === "E" || userChoice === "e" || userChoice ==="Exit") {
         confirm ("TRAITOR! You retreated and left the world in ashes. Good job, jerk.")
     } else {
@@ -21,130 +67,82 @@ button.addEventListener ("click", function() {
     }
   }
 );
+
+button.addEventListener("click", button);
  
-//Making a class for spaceships 
-class userShip {
-    constructor (hull, firepower, accuracy) {
-        this.hull = hull;
-        this.firepower = 5;
-        this.accuracy = .7;
+
+
+//ALL THE FUNCTIONS YO
+
+//     class hwDamage  {
+//         constructor (hull, firePower) {
+//         let newHullPoints = alienArray.firePower - userShip.hull;
+//         if (newHullPoints > 0) { 
+//             console.log(`You've been hit! Your new hull points are ${newHullPoints}`);
+//     }  else if (newHullPoints === 0 ) {
+//              console.log(`You've been destroyed. Play again?`) 
+//     }  else () {
+//         console.log(`They missed your ship!`)
+//     }
+//     }
+// }
+
+// hwDamage()
+
+
+
+function alienDamage (hull, firePower) {
+    let alienHullPoints = userShip.firePower - Alien.hull;
+    if (alienHullPoints < 0) {
+        alert ("You destroyed their ship!")
+    } else if (alienHullPoints >= 0) {
+        alert ("You hit their ship! But didn't destroy them. FINISH THEM.")
     }
-    // accurateHitFromAS() {
-    //     return console.log("You've been hit!"); //Reflect new stats for HW and AS
-    // }
-    // destroyedAS() {
-    //     return console.log("You destroyed the ship!") //Reflect new stats
-    // }
-};
-
-const helloWorld = new userShip("Hello World");
-
-console.log(helloWorld)
-
-//console.log (HWSpaceshipStart.helloWorld.accurateHitFromAS())
-
-
-//Alien spaceship class
-class Alien {
-    constructor (name) {
-        this.name = name
-        this.hull = Math.floor(Math.random() * 4) + 3; //Ying's idea
-        this.firepower = Math.floor(Math.random() * 2) + 3;
-        this.accuracy = (Math.floor(Math.random() * 3) + 6) / 10; //whatever multiplication range, we do not include at the end
-    }
-
-    }
-const alienOne = new Alien();
-const alienTwo = new Alien();
-const alienThree = new Alien();
-const alienFour = new Alien();
-const alienFive = new Alien();
-const alienSix = new Alien();
-
-//Looping through the different alien outcomes
-let alienArray = [alienOne, alienTwo, alienThree, alienFour, alienFive, alienSix]
-    for (let i = 0; i<= 5; i++) {
-        console.log("A new alien ship has arrived!")
-    }
-
-
-
-
-//HW Attacking AS
-if (userShip.accuracy >= Alien.alienArray.accuracy && userShip.firePower >= Alien.alienArray.hull){
-    alert("You destroyed the ship!")
-} else if (userShip.accuracy === Alien.alienArray.accuracy && userShip.firePower === Alien.alienArray.hull) {
-    alert("You hit the ship, the points are now..") // Reflect the alienship points
-} else (userShip.accuracy <= Alien.alienArray.accuracy && userShip.firePower <= Alien.alienArray.hull) {
-    alert("You missed the ship!")
-};
-
-startGame.addEventListener("click", Start);
-
-//USS Hello World Attacks
-if (ussHelloWorld.accuracy > alienShipOne.accuracy) {
-    alert(`Direct hit! You reduced the Alien Ship's hull by ${ussHelloWorld.firepower} points. The Alien's ship's hull is now at ${alienShipOne.hull - ussHelloWorld.firepower}`)
-};
-
-//AS attacking HW
-if(Alien.alienArray.accuracy >= userShip.accuracy && Alien.alienArray.firePower >= userShip.firePower) {
-    alert("You've been hit! Your hull is now at...") // Reflect the hull points 
-} else if (Alien.alienArray.accuracy === userShip.accuracy && Alien.alienArray.firePower === userShip.firepower) {
-    alert("The ship missed!")
-} else (Alien.alienArray.accuracy <= userShip.accuracy && userShip.firePower <= Alien.alienArray.firePower) {
-    alert("The ship missed!")
 }
 
-//Attacking or Retreating Version 1-did not work
 
 
-// let userChoice = prompt("Do you wish to attack? Type in attack or a. If you would like to retreat, type in retreat or r.");
-// let text;
-//     if (userChoice === "attack" || userChoice === "a" || userChoice === "A") {
-//         text = "You attack the alien spaceship!"
-//     } else if (userChoice === "retreat" || userChoice === "r" || userChoice === "R") {
-//         text = "You leave, letting the world go to ashes. You monster"
-//     } else {
-//         alert("Click to start the game again!")
-//     }
 
-// function userAttacks (ahull,uAccuracy, uFirepower){
-//     if (ahull <=5  ) {
-//         return 
-//     }
 
-//     }
+
+
+
+
+
+//AS attacking HW
+// if(Alien.alienArray.accuracy >= userShip.accuracy && Alien.alienArray.firePower >= userShip.firePower){
+//     alert("You've been hit! Your hull is now at...") // Reflect the hull points 
+// } else if (Alien.alienArray.accuracy === userShip.accuracy && Alien.alienArray.firePower === userShip.firepower){
+//     alert("The ship missed!")
+// } else (Alien.alienArray.accuracy <= userShip.accuracy && userShip.firePower <= Alien.alienArray.firePower);{
+//     alert("The ship missed!")
 // }
 
-// function maxOfThree(a,b,c){
-//     if (a >= b && a >=c){ 
-//          if (a === b && a > c) { //
-//             return a;
-//         } else if(a === c && a > b ){
-//             return a;
-//          }else if (a > b && a > c){
-//             return a;
-//         } else if (a === b && b === c) {
-//             return "they are equal"
-//         } 
-//     } else if(b >= a && b >= c){
-//           if (b === c && b >a ){
-//             return b;
-//           } else if(b>a && b >c){
-//             return b;
-//           }     
-//     } else if(c > a && c > b){
-//       return c; 
-//     }  
-// }
-// console.log(maxOfThree(17, 11, 17));
+//CODE GRAVEYARD
+
+ // constructor (name) {
+    //     this.name = name
+    //     this.hull = Math.floor(Math.random() * 4) + 3; //Ying's idea
+    //     this.firepower = Math.floor(Math.random() * 2) + 3;
+    //     this.accuracy = (Math.floor(Math.random() * 3) + 6) / 10; //whatever multiplication range, we do not include at the end
+    // }
+
+//Original piece, took out the array
+   //     const alienOne = new Alien();
+//     const alienTwo = new Alien();
+//     const alienThree = new Alien();
+//     const alienFour = new Alien();
+//     const alienFive = new Alien();
+//     const alienSix = new Alien();
 
 
+//Looping through the different alien outcomes
 
+//     for (let i = 0; i<= 5; i++) {
+//         console.log("A new alien ship has arrived!")
+//     }
 
-//const alienShipOne = new Aliens;
-//console.log(Aliens.alienShipOne.hullRandom(3,6));
-
+//console.log (HWSpaceshipStart.helloWorld.accurateHitFromAS())
 
 //for (let i =20; i <= 0; i--);
 
@@ -168,3 +166,10 @@ if(Alien.alienArray.accuracy >= userShip.accuracy && Alien.alienArray.firePower 
 //     max = Math.floor(max);
 //     return Math.floor(Math.random() * )
 // }
+
+ // accurateHitFromAS() {
+    //     return console.log("You've been hit!"); //Reflect new stats for HW and AS
+    // }
+    // destroyedAS() {
+    //     return console.log("You destroyed the ship!") //Reflect new stats
+    // }
