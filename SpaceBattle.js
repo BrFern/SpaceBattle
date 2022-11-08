@@ -6,7 +6,7 @@ var body = document.getElementsByTagName("body")[0];
 body.appendChild(button);
 
 //Making a class for spaceships 
-class userShip {
+class Ship {
     constructor (hull, firepower, accuracy) {
         this.hull = hull;
         this.firepower = firepower;
@@ -14,11 +14,11 @@ class userShip {
     }
 };
 
-const helloWorld = new userShip (20, 5, .7);
+const helloWorld = new Ship (20, 5, .7);
 
 console.log(helloWorld)
 
-//Alien spaceship class   //Sarada's support:
+//Alien spaceship class   //Sarada's support yay! Things worked!
 class Alien {
     constructor(hull,firepower,accuracy)
     {   this.hull = hull;
@@ -40,13 +40,22 @@ let alienArray = []
 
     // console.log(Alien.alienArray.accuracy)
 
+//Will's code --yay things worked!
+    let shipsBattle = (userShip, alienShip) => {
+        let ships = [userShip, alienShip];
+        let beingAttacked = 1;
+        while (ships[beingAttacked].hull>0) //Greater than 0 makes it true
+            if (ships[beingAttacked].hull>0)
+            console.log(shipsBattle);
+    };
+ 
 //HW Attacking AS
 function hwAttacks(){
-    if (userShip.accuracy >= Alien.[alienArray].accuracy && userShip.firePower >= Alien.alienArray.hull){
+    if (helloWorld.accuracy >= Alien.accuracy && Ship.firePower >= Alien.hull){
         alert(`You destroyed an alien ship!`)
-    } else if (userShip.accuracy === Alien.alienArray.accuracy && userShip.firePower === Alien.alienArray.hull){
-        alert(`You hit an alien ship! Their hull defense is now at ${alienArray.hull}`) // Reflect the alienship points
-    } else (userShip.accuracy <= Alien.alienArray.accuracy && userShip.firePower <= Alien.alienArray.hull);{
+    } else if (Ship.accuracy === Alien.accuracy && Ship.firePower === Alien.hull){
+        alert(`You hit an alien ship! Their hull defense is now at ${Alien.hull}`) // Reflect the alienship points
+    } else (Ship.accuracy <= Alien.accuracy && Ship.firePower <= Alien.hull);{
         alert("You missed the ship!")
     }
     };
@@ -60,6 +69,7 @@ button.addEventListener ("click", function() {
     if (userChoice === "A" || userChoice === "a" || userChoice === "attack") {
         confirm ("Laser attack! Pew, pew!");
         hwAttacks ();
+        // shipsBattle ();
     } else if (userChoice === "E" || userChoice === "e" || userChoice ==="Exit") {
         confirm ("TRAITOR! You retreated and left the world in ashes. Good job, jerk.")
     } else {
@@ -74,20 +84,19 @@ button.addEventListener("click", button);
 
 //ALL THE FUNCTIONS YO
 
-//     class hwDamage  {
-//         constructor (hull, firePower) {
-//         let newHullPoints = alienArray.firePower - userShip.hull;
-//         if (newHullPoints > 0) { 
-//             console.log(`You've been hit! Your new hull points are ${newHullPoints}`);
-//     }  else if (newHullPoints === 0 ) {
-//              console.log(`You've been destroyed. Play again?`) 
-//     }  else () {
-//         console.log(`They missed your ship!`)
-//     }
-//     }
-// }
+    class hwDamage  {
+        constructor (hull, firePower) {
+        let newHullPoints = Alien.firePower - Ship.hull;
+        if (newHullPoints > 0) { 
+            console.log(`You've been hit! Your new hull points are ${newHullPoints}`);
+    }  else if (newHullPoints === 0 ) {
+             console.log(`You've been destroyed. Play again?`) 
+    }  else if (newHullPoints >=1 ) {
+        console.log(`They missed your ship!`)
+    }
+    }
+}
 
-// hwDamage()
 
 
 
