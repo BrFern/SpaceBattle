@@ -34,7 +34,7 @@ let alienArray = []
 
 
 
-    //Ying went through her logic and I think I get it finally! I'm going to work on my own
+    //Ying went through her logic and I think I get it finally! I'm going to work on my own. SHE WAS A ROCKSTAR. THANK YOU YING!
 
 
 //HW ATTACKS
@@ -101,3 +101,5 @@ function gameLoop(alienShip) {
 function startButton() {
     gameLoop(alienArray[0]);
 }
+
+startButton();
