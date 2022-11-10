@@ -1,4 +1,73 @@
 //CODE GRAVEYARD
+//Starting the game function
+// function startGame (){
+//     alert (`You are a crew member on the ship, HelloWorld! There are several aliens coming to attack you!`)
+//     alert (`You're being attacked! How annoying.`)
+//     userPrompt();
+// }
+
+//HW won
+// function hwWon() {
+//     if (alienArray[0] === 0) {
+//         console.log(`You have destroyed all of the ships! Congratulations you saved humanity!!!`)
+//     }
+// }    
+
+//Restarting the game function
+// function restarting() {
+//     let userChoiceTwo =  prompt(`Would you like to play again? Type y, Y or Yes to start again, type n, N or No to finish`)
+//     if (userChoiceTwo === "y" || userChoiceTwo === "Y" || userChoiceTwo === "Yes") {
+//         confirm ("Let's get going!")
+//     } else if (userChoiceTwo === "n" || userChoiceTwo === "N" || userChoiceTwo ==="No") {
+//         confirm ("Fine. That's cool too. I guess.")
+// }
+//     }
+  //Subtracting HW hull
+//   if (alienArray[0].firepower >= 5) {
+//    let newHWHull = (
+//        helloWorld.hull - alienArray[0].firepower
+//    )
+//    console.log(`You've been hit! Your hull stats are now at ${newHWHull}!`)
+// }
+  // if (alienArray[0].accuracy > helloWorld.accuracy)  {
+    //     console.log(`Uh-oh, the ship was accurate enough to be able to hit you!`)
+    // }
+    // else if (alienArray[0].accuracy < helloWorld.accuracy) {
+    //     console.log(`The ship missed! It is now your turn to attack`)
+    //     hwAttacks()
+    // }
+
+//Starting button 
+// var button = document.createElement("button");
+// button.innerHTML = "Start Game!"
+
+// var body = document.getElementsByTagName("body")[0];
+// body.appendChild(button);
+
+
+// // Event handler for attacking
+
+// var body = document.getElementsByTagName("body")[0];
+// body.appendChild(button);
+
+// // // Event handler for attacking
+// // //Lorivie helped me with this part, thank you!
+// button.addEventListener ("click", startGame()) 
+//     alert("Let's kill some aliens");
+//     alert("You're being attacked! How annoying.")
+//     userPrompt();
+
+// button.addEventListener("click", button);
+
+
+//     let userChoice = prompt ("Do you want to attack or exit?", "Enter attack, a or A to attack, enter exit, e or E to exit");
+//     if (userChoice === "A" || userChoice === "a" || userChoice === "attack") {
+//         //confirm ("Laser attack! Pew, pew!");
+//     } else if (userChoice === "E" || userChoice === "e" || userChoice ==="Exit") {
+//         confirm ("TRAITOR! You retreated and left the world in ashes. Good job, jerk.")
+//     } 
+//   }
+// );
 
 
 // let shipsBattle = (ship1, ship2) => {

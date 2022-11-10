@@ -1,17 +1,4 @@
 
-//     let userChoice = prompt ("Do you want to attack or exit?", "Enter attack, a or A to attack, enter exit, e or E to exit");
-//     if (userChoice === "A" || userChoice === "a" || userChoice === "attack") {
-//         //confirm ("Laser attack! Pew, pew!");
-//     } else if (userChoice === "E" || userChoice === "e" || userChoice ==="Exit") {
-//         confirm ("TRAITOR! You retreated and left the world in ashes. Good job, jerk.")
-//     } 
-//   }
-// );
-
-
-
-
-
 //Making a class for spaceships 
 class Ship {
     constructor (hull, firepower, accuracy) {
@@ -50,128 +37,67 @@ let alienArray = []
     //Ying went through her logic and I think I get it finally! I'm going to work on my own
 
 
-    let newASHull = (alienArray[0].hull - helloWorld.firepower)
-
-
 //HW ATTACKS
 
 //HW accuracy comparison
-function hwAttacks() {
-    userPrompt()
-    if (helloWorld.accuracy > alienArray[0].accuracy) {
-        console.log(`You hit an alien ship!`)
-    } else if (helloWorld.accuracy < alienArray[0].accuracy) {
+function hwAttacks(alienShip) {
+    if (Math.floor(Math.random()) <= helloWorld.accuracy) 
+    { console.log(`You hit an alien ship!`)
+        alienShip.hull -= helloWorld.firepower //Alien ship minus helloWorld is equal to your new AS hull
+    } else {
         console.log(`You missed! They're now going to attack you!`)
-        asAttacks()
     }
-    // HW Firepower
-    if (helloWorld.firepower >= 5) {
-        console.log(`You hit a ship! Their health is now at ${newASHull}`) 
-    } else if (helloWorld.firepower <= 5) {
-        console.log(`You missed the ship! They're now going to attack you!`)
-        asAttacks()
-    }
-    //Subtracting AS hull
-    if (helloWorld.firepower < 2 || helloWorld.firepower < 5) {
-            console.log(`The ship is still alive! But its health is now at ${newASHull}`)
-}       else if (alienArray[0].accuracy < helloWorld.accuracy)
-        console.log('The ship failed to hit you! It is now your turn to attack')
-        hwAttacks()
-        userPrompt()
 }
     //Destroying AS 
-        if (helloWorld.firepower >= 3) {
-            console.log(`You destroyed the ship!`)
+        function alienDestroy () {
+                alienArray.shift()
+                console.log(`You destroyed the ship!`)
+                
+            if (alienArray.length === 0) {
+                console.log (`All of the ships have been destroyed! You won!`)
+            } else (
+                userPrompt()
+            )
         }
-            
 //Alien Attacking 
 
-function asAttacks() {
-    if (alienArray[0].accuracy > helloWorld.accuracy)  {
-        console.log(`Uh-oh, the ship was accurate enough to be able to hit you!`)
-    }
-    else if (alienArray[0].accuracy < helloWorld.accuracy) {
-        console.log(`The ship missed! It is now your turn to attack`)
-        hwAttacks()
-    }
-
-    //Subtracting HW hull
-    if (alienArray[0].firepower >= 5) {
-        let newHWHull = (
-            helloWorld.hull - alienArray[0].firepower
-        )
-        console.log(`You've been hit! Your hull stats are now at ${newHWHull}!`)
-    }
-     
-    //Destroying HW -AS wins
-        if (newASHull === 0) {
-            console.log (`Your ship has been destroyed! Would you like to play again?`)
-        
+function asAttacks(alienShip) {
+    if (Math.floor(Math.random()) <= alienShip.accuracy) 
+    { console.log(`You've been hit by an alien ship!`)
+        helloWorld.hull -= alienShip.firepower //Alien ship minus helloWorld is equal to your new AS hull
+    } else {
+        console.log(`They missed! Now you get to attack!`)
     }
 }
-
-//HW won
-function hwWon() {
-    if (alienArray[0] === 0) {
-        console.log(`You have destroyed all of the ships! Congratulations you saved humanity!!!`)
-    }
-}    
     
 //Prompting UserChoice
 function userPrompt () { 
     let userInput = prompt ("Do you want to attack or exit?", "Enter attack, a or A to attack, enter exit, e or E to exit")
-    if (userInput === "A" || userInput === "a" || userInput=== "attack") {
+    if (userInput === "A" || userInput === "a" || userInput=== "attack")  
+    {
+        gameLoop(alienArray[0]) //restarting with new ship, new round
     } else if (userInput === "E" || userInput === "e" || userInput ==="Exit") {
-        confirm ("TRAITOR! You retreated and left the world in ashes. Good job, jerk.")
+        alert ("TRAITOR! You retreated and left the world in ashes. Good job, jerk.")
     } 
 };
 
-//Starting button 
-// var button = document.createElement("button");
-// button.innerHTML = "Start Game!"
-
-// var body = document.getElementsByTagName("body")[0];
-// body.appendChild(button);
-
-
-// // Event handler for attacking
-
-// var body = document.getElementsByTagName("body")[0];
-// body.appendChild(button);
-
-// // // Event handler for attacking
-// // //Lorivie helped me with this part, thank you!
-// button.addEventListener ("click", startGame()) 
-//     alert("Let's kill some aliens");
-//     alert("You're being attacked! How annoying.")
-//     userPrompt();
-
-// button.addEventListener("click", button);
-
-//Starting the game function
-function startGame (){
-    alert (`You are a crew member on the ship, HelloWorld! There are several aliens coming to attack you!`)
-    alert (`You're being attacked! How annoying.`)
-    userPrompt();
+//Game Loop
+function gameLoop(alienShip) {
+    while (helloWorld.hull > 0 && alienArray.length >= 1) //Game runs while HW is alive and there are still AS targets
+    {hwAttacks(alienShip) 
+    if (alienShip.hull <= 0) {
+        alienDestroy(alienShip)
+        return;
+}   else { 
+    asAttacks(alienShip);
 }
-
-
-//Restarting the game function
-function restarting() {
-    let userChoiceTwo =  prompt(`Would you like to play again? Type y, Y or Yes to start again, type n, N or No to finish`)
-    if (userChoiceTwo === "y" || userChoiceTwo === "Y" || userChoiceTwo === "Yes") {
-        confirm ("Let's get going!")
-    } else if (userChoiceTwo === "n" || userChoiceTwo === "N" || userChoiceTwo ==="No") {
-        confirm ("Fine. That's cool too. I guess.")
+    };
+  if (helloWorld.hull <= 0) {
+    console.log(`YOU'RE DEAD. GAME OVER!!`)
+  }
 }
-    }
-    //Game Loop 
-    function gameLoop() {
-        while (helloWorld.hull >= 0 ||alienArray[0].hull >= 0)
-                hwAttacks()
-            
-    } 
+//Starting Button
 
-    
-
-
+function startButton() {
+    gameLoop(alienArray[0]);
+}
