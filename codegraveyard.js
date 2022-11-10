@@ -1,5 +1,97 @@
 //CODE GRAVEYARD
 
+
+// let shipsBattle = (ship1, ship2) => {
+//    // let ships = [helloWorld, alienShips];
+//    // let beingAttacked = 1;
+//    //  while (ships[beingAttacked].hull>0) //Greater than 0 makes it true
+//    //     if (ships[beingAttacked].hull>0)
+//    //     console.log(shipsBattle);
+//    ship1.hull -= ship2.firepower
+// };
+
+// //Wrap a loop around the whole if statement 
+// //Instead of alien array zero, do your variable (i)
+// //AS attacking HW
+// function asAttacks() {
+// for (let i=0; i<=6; i++) {
+// if(alienArray[i].accuracy > helloWorld.accuracy){
+// alert(`You've been destroyed by an alien ship! Game over`)
+
+// } else if (alienArray[i].accuracy < helloWorld.accuracy){
+
+// const  newHull = helloWorld.hull - alienArray[i].firepower
+
+// alert(`You've been hit! Your hull defense is now at ${newHull}`)
+// prompt ("Do you want to attack again or exit?", "Enter attack, a or A to attack, enter exit, e or E to exit");
+// if (userChoice === "A" || userChoice === "a" || userChoice === "attack") {
+// confirm ("Laser attack! Pew, pew!");
+// shipsBattle();
+// };
+// // Reflect the alienship points
+// prompt ("Do you want to attack again or exit?", "Enter attack, a or A to attack, enter exit, e or E to exit");
+// if (userChoice === "A" || userChoice === "a" || userChoice === "attack") {
+// confirm ("Laser attack! Pew, pew!");
+// shipsBattle();
+// }
+// }
+// }
+// };
+// //HW Attacking AS
+// function hwAttacks(){ 
+
+// if (helloWorld.accuracy > alienArray[0].accuracy){
+//    prompt ("Do you want to attack again or exit?", "Enter attack, a or A to attack, enter exit, e or E to exit");
+//     if (userChoice === "A" || userChoice === "a" || userChoice === "attack") {
+//    confirm ("Laser attack! Pew, pew!");
+//    if (0>= alienArray[i].hull){
+//        console.log(`You destroyed an alien ship!`)
+//        alienArray[0].hull -= helloWorld.firepower
+//    shipsBattle(helloWorld,alienArray[i])
+//    } else if (alienArray[i].hull > 0 ){
+//        alert (`You hit an alien ship!`)
+//        shipsBattle(helloWorld,alienArray[i])
+//    }
+//    };
+// } else if (helloWorld.accuracy < alienArray[i].accuracy)
+//     if (helloWorld.firepower === alienArray[i].hull){
+//    alert(`You hit an alien ship! Their hull defense is now at ${alienArray[i].hull}`)
+//    shipsBattle()
+//    let userChoice = prompt ("Do you want to attack again or exit?", "Enter attack, a or A to attack, enter exit, e or E to exit");
+//     if (userChoice === "A" || userChoice === "a" || userChoice === "attack") {
+//    confirm ("Smash those ships!");
+//    shipsBattle()
+//    };
+//     // Reflect the alienship points
+// } else (helloWorld.accuracy < alienArray[i].accuracy)
+//  else if (helloWorld.firepower < alienArray[i].hull);{
+//    alert(`The ship failed to hit you! Your hull is at ${helloWorld.hull}`)
+// }
+
+// };
+
+// } else if (helloWorld.accuracy < alienArray[i].accuracy && helloWorld.firepower < alienArray[i].hull);{
+//    alert("The ship failed to hit you!")
+//    shipsBattle();
+
+// //Attack functions
+// let hwBattle (helloWorld.accuracy, alienArray[i].hull) {
+//    if 
+// }
+
+
+
+
+// //Will's code --yay things worked!
+//     let shipsBattle = (userShip, alienShips) => {
+//         let ships = [userShip, alienShips];
+//         let beingAttacked = 1;
+//         while (ships[beingAttacked].hull>0) //Greater than 0 makes it true
+//             if (ships[beingAttacked].hull<0)
+//             console.log(shipsBattle);
+//     };
+
+
 //     if (helloWorld.accuracy >= .7 && helloWorld.firePower >= 5){
 //         alert(`You destroyed an alien ship!`)
 //     } else if (helloWorld.accuracy <= .7 || helloWorld.firePower >= 5){
